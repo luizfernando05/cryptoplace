@@ -1,5 +1,4 @@
-const { createContext, useState, useEffect } = require("react");
-require("dotenv").config();
+import { createContext, useState, useEffect } from "react";
 
 export const CoinContext = createContext();
 
