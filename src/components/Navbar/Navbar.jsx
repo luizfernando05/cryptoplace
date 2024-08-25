@@ -6,7 +6,7 @@ import arrowUp from "../../assets/arrow-up-right.svg";
 const Navbar = () => {
   return (
     <div className="navbar">
-      <img src={logo} alt="Logo from CryptoPlace" />
+      <img src={logo} alt="Logo from CryptoPlace" className="logo" />
       <ul>
         <li>Home</li>
         <li>Features</li>
