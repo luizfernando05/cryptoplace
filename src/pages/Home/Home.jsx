@@ -38,12 +38,18 @@ const Home = () => {
         </p>
         <form onSubmit={searchHandler}>
           <input
+            list="coinlist"
             onChange={inputHandler}
             value={input}
             type="text"
             placeholder="Search crypto..."
             required
           />
+          <datalist id="coinlist">
+            {allCoin.map((item, index) => (
+              <option key={index} value={item.name} />
+            ))}
+          </datalist>
           <button type="submit">Search</button>
         </form>
       </div>
