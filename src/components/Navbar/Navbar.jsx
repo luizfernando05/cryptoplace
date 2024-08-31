@@ -3,6 +3,7 @@ import "./Navbar.css";
 import logo from "../../assets/cryptoplace-logo.svg";
 import arrowUp from "../../assets/arrow-up-right.svg";
 import { CoinContext } from "../../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
@@ -30,9 +31,13 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <img src={logo} alt="Logo from CryptoPlace" className="logo" />
+      <Link to={"/"}>
+        <img src={logo} alt="Logo from CryptoPlace" className="logo" />
+      </Link>
       <ul>
-        <li>Home</li>
+        <Link to={"/"}>
+          <li>Home</li>
+        </Link>
         <li>Features</li>
         <li>Pricing</li>
         <li>Blog</li>
