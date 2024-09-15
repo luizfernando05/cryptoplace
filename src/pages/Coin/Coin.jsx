@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Coin.css";
 import { useParams } from "react-router-dom";
 import { CoinContext } from "../../context/CoinContext";
+import LineChart from "../../components/LineChart/LineChart";
 
 const Coin = () => {
   const { coinId } = useParams();
@@ -34,7 +35,7 @@ const Coin = () => {
     };
 
     fetch(
-      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10`,
+      `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`,
       options
     )
       .then((response) => response.json())
@@ -44,6 +45,7 @@ const Coin = () => {
 
   useEffect(() => {
     fetchCoinData();
+    fetchHistoricalData();
   }, [currency]);
 
   if (coinData && historicalData) {
@@ -56,6 +58,9 @@ const Coin = () => {
               {coinData.name} ({coinData.symbol.toUpperCase()})
             </b>
           </p>
+        </div>
+        <div className="coin-chart">
+          <LineChart historicalData={historicalData} />
         </div>
       </div>
     );
